@@ -7,6 +7,7 @@ In particular, you can measure previous records through `sar`, but it's more tro
 
 1. `Python3` (Maybe... wouldn't it work even with Python 3.1? I just used the basic code.)
 2. `mpstat` (if you don't have it, build at install time in install.sh)
+3. `curl` Download for mpstat2csv.
 
 ## Getting started?
 

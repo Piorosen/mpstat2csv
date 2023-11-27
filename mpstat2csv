@@ -51,11 +51,23 @@ if __name__ == '__main__':
     
     if args.tmp == '':
         args.tmp = str(int(time.time())) + '.txt'
-        print(args.tmp)
     
+    print("create temporary file : {0}".format(args.tmp))
+
+    s = time.time()
+    print("start: get cpu core information.")
     os.system("sar -P ALL -u {0} {1}  | awk 'BEGIN {{OFS=\",\"}} {{ if ($1 ~ /^[0-9]/ && $2 == \"AM\" || $2 == \"PM\") {{ print $1 \" \" $2, $3, $5, $7, $9, $11, $13 }} }}' > {2}".format(args.interval, args.epoch, args.tmp))
+    e = time.time()
     
+    print("finish: get cpu core information. ({0} s)".format(e -s ))
+
+    s = time.time()
+    print("start: convert temporary file to csv file.")
     d, c, t = load_file(args.tmp)
     save_file(args.file, d, c, t)
+    print("finish: convert temporary file to csv file. ({0} s)".format(e -s))
+    e = time.time()
     
     os.remove(args.tmp)
+    print("finish: remove that temporray file.")
+    
