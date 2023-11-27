@@ -2,11 +2,12 @@
 
 echo "check: duplicated install mpstat2csv"
 
-if [ -z $(which mpstat2csv) ]; then 
-    echo "found mpstat2csv [$(which mpstat2csv)]"
+if [ ! -z $(which mpstat2csv) ]; then 
+    echo "found mpstat2csv [ $(which mpstat2csv) ]"
     exit
 fi
 
+echo "not found mpstat2csv. start install mpstat2csv"
 echo "check: exists mpstat"
 if [ -z $(which mpstat) ]; then 
     echo "not found mpstat."
