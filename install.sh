@@ -1,7 +1,13 @@
 #!/bin/bash
 
+echo "check: duplicated install mpstat2csv"
+
+if [ -z $(which mpstat2csv) ]; then 
+    echo "found mpstat2csv [$(which mpstat2csv)]"
+    exit
+fi
+
 echo "check: exists mpstat"
- 
 if [ -z $(which mpstat) ]; then 
     echo "not found mpstat."
     echo "install: mpstat from source in github"
