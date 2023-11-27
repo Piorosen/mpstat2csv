@@ -64,8 +64,8 @@ if __name__ == '__main__':
     print("start: convert temporary file to csv file.")
     d, c, t = load_file(args.tmp)
     save_file(args.file, d, c, t)
-    print("finish: convert temporary file to csv file. ({0} s)".format(e -s))
     e = time.time()
+    print("finish: convert temporary file to csv file. ({0} s)".format(e -s))
     
     os.remove(args.tmp)
     print("finish: remove that temporray file.")
