@@ -40,7 +40,6 @@ def save_file(file, data, cores, times):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    args = parser.parse_args()
 
     parser.add_argument('--interval', '-i', type=int, help='interval of mpstat for capture data', default=1)
     parser.add_argument('--epoch', '-e', type=int, help='epoch of mpstat for capture data', default=5)
