@@ -15,7 +15,7 @@ if [ -z $(which mpstat) ]; then
     echo "maybe? your permission."
     
 
-    git clone git://github.com/sysstat/sysstat
+    git clone https://github.com/sysstat/sysstat
     cd sysstat && ./configure
     make && sudo make install
     cd ..
