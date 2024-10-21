@@ -31,12 +31,12 @@ if __name__ == '__main__':
                 if o:
                     for match in pattern.finditer(o):
                         t, cpu, user, nice, system, iowait, steal, idle = match.groups()
-                        writer.writerow([count, t, cpu, user, nice, system, iowait, steal, idle])
                         if cpu.lower() == 'all':
                             count += 1
                             print("Time\t\tuser\tnice\tsystem\tiowait\tsteal\tidle")
                             print(f"{t}\t{user}\t{nice}\t{system}\t{iowait}\t{steal}\t{idle}")
                             print()
+                        writer.writerow([count, t, cpu, user, nice, system, iowait, steal, idle])
     finally:
         process.terminate()
         process.wait()
